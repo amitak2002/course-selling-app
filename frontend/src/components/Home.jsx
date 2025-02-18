@@ -139,9 +139,7 @@ function Home() {
                 <Link to={"/courses"} className="border-2 rounded-md py-3 px-10 text-[17px] bg-green-500 text-black hover:bg-white hover:text-red-600 transition duration-300">
                   Explore Courses
                 </Link>
-                <Link  to={'https://www.youtube.com/@LearnCodingOfficial'} className="border-2 rounded-md py-3 px-10 text-[17px] bg-green-500 text-black hover:bg-white hover:text-red-600 transition duration-300">
-                  Create Videos
-                </Link>
+                
               </div>
             </section>
 
