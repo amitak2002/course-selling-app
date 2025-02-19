@@ -17,7 +17,16 @@ function Courses() {
   const [courses , setCourse] = useState([])
   const [isLoggedIn , setIsLoggedIn] = useState(false)
   const [loading , setLoading] = useState(true)
+  const [search , setSearch] = useState("")
+  console.log('search is : ',search)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const newArr = courses.filter((course) => 
+      (course.title.toLowerCase().includes(search.toLowerCase()))
+    )
+    setCourse(newArr)
+  },[search])
 
   // token
   useEffect(() => {
@@ -139,7 +148,7 @@ function Courses() {
       <header className='w-full bordere-2 bg-slate-100 p-4 rounded-md flex justify-end align-middle'>
         <h1 className='font-semibold font-serif flex justify-start'>Courses :- </h1>
         <div className='w-1/2  h-full flex justify-end align-middle '>
-          <input placeholder='search' className='w-1/2 h-full  rounded-md border-gray-200 text-2xl py-2 text-center'/>
+          <input placeholder='search' className='w-1/2 h-full  rounded-md border-gray-200 text-2xl py-2 text-center' onChange={(e) => setSearch(e.target.value)} />
         </div>
       </header>
 
