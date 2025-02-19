@@ -3,10 +3,6 @@ import logo from '../../public/logo.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { BACKEND_URL } from '../assets/backendurl.js';
-
-
 
 
 function AdminDashboard() {

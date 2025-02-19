@@ -18,6 +18,8 @@ function Signup() {
   const [error , setError] = useState("")
 
   console.log(firstName , lastName , email , password)
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -36,8 +38,7 @@ function Signup() {
 
       console.log('sign up sucessfull ,',response)
       toast.success('Sucessfully SignUp' , {autoClose : 2000})
-      const navigate = useNavigate();
-
+  
       setEmail("")
       setError("")
       setFirstName("")
