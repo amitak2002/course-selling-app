@@ -37,8 +37,6 @@ function AdminSignin() {
         const {token} = response.data
         localStorage.setItem("admin" , JSON.stringify(response.data))
         console.log('token of admin is : ',token)
-      
-        navigate("/admin/dashboard")
 
     } 
     catch (err) {
