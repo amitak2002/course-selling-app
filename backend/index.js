@@ -12,7 +12,8 @@ dotenv.config()
 // middle ware
 app.use(cookieParser())  // cookie ke andr jo token hai usko read krne ke
 
-app.use(cors({origin : 'http://localhost:5173' , credentials : true}))
+app.use(cors({origin : `${process.env.FRONTEND_URI}` , credentials : true}))
+console.log(process.env.FRONTEND_URI)
 app.use(express.json())
 app.use(
     fileUpload({ // image of pdf uploaf krne ke liye
