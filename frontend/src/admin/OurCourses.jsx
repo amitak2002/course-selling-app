@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
-
+import { BACKEND_URL } from '../assets/backendurl.js';
 
 
 function OurCourses() {
@@ -29,7 +29,7 @@ function OurCourses() {
 
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("http://localhost:2002/api/v1/courses/allcourses", { withCredentials: true });
+        const response = await axios.get(`${BACKEND_URL}/courses/allcourses`, { withCredentials: true });
         console.log(response.data);
         setCourses(response.data);
 
@@ -57,7 +57,7 @@ function OurCourses() {
   // handle logout
   const handleDelete = async (courseId) => {
     try {
-      const response = await axios.delete(`http://localhost:2002/api/v1/courses/delete/${courseId}`, {
+      const response = await axios.delete(`${BACKEND_URL}/courses/delete/${courseId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         },

@@ -5,6 +5,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { BACKEND_URL } from '../assets/backendurl.js';
 
 function AdminSignup() {
 
@@ -22,7 +23,7 @@ function AdminSignup() {
 
     try {
       // url for api calling , data , headers
-      const response = await axios.post("http://localhost:2002/api/v1/admin/signup" ,
+      const response = await axios.post(`${BACKEND_URL}/admin/signup` ,
         {
           firstName , lastName , email , password
         } , 

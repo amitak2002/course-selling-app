@@ -9,7 +9,7 @@ import { IoMdSettings } from "react-icons/io";
 import { IoLogOut, IoLogIn } from "react-icons/io5";
 import {Link} from 'react-router-dom'
 import {useNavigate} from 'react-router-dom'
-
+import { BACKEND_URL } from '../assets/backendurl.js';
 
 
 function Courses() {
@@ -37,7 +37,7 @@ function Courses() {
 
       try {
         setLoading(true)
-        let response = await axios.get("http://localhost:2002/api/v1/courses/allcourses" , 
+        let response = await axios.get(`${BACKEND_URL}/courses/allcourses` , 
           {withCredentials : true}
         )
         toast.success("sucessfully fetched courses" , {autoClose : 1000})
@@ -59,7 +59,7 @@ function Courses() {
   const handleLogout = async (e) => {
     e.preventDefault()
     try {
-        const response = await axios.get("http://localhost:2002/api/v1/user/logout" ,
+        const response = await axios.get(`${BACKEND_URL}/user/logout` ,
           {withCredentials : true},
         )
         console.log(response.data)

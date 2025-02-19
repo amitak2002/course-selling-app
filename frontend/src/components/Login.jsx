@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Logo from '../../public/logo.jpg'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import { BACKEND_URL } from '../assets/backendurl.js'
 
 
 function Login() {
@@ -18,7 +19,7 @@ function Login() {
     e.preventDefault()
 
     try {
-        let response = await axios.post("http://localhost:2002/api/v1/user/login" ,
+        let response = await axios.post(`${BACKEND_URL}/user/login` ,
           {email , password},
           {withCredentials : true,
             "Content-type" : "application/json"

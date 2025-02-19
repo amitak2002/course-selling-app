@@ -9,6 +9,7 @@ import { IoMdSettings } from "react-icons/io";
 import { IoLogOut, IoLogIn } from "react-icons/io5";
 import {Link} from 'react-router-dom'
 import {useNavigate} from 'react-router-dom'
+import { BACKEND_URL } from '../assets/backendurl.js';
 
 
 
@@ -55,7 +56,7 @@ function Purchase() {
     const fetchPurchases = async () => {
         try {
             setLoading(true); // Start loading
-            const response = await axios.get("http://localhost:2002/api/v1/user/purchase", {
+            const response = await axios.get(`${BACKEND_URL}/user/purchase`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },
@@ -84,7 +85,7 @@ function Purchase() {
       e.preventDefault()
       try {
         setLoading(true)
-          const response = await axios.get("http://localhost:2002/api/v1/user/logout" ,
+          const response = await axios.get(`${BACKEND_URL}/user/logout` ,
             {withCredentials : true},
           )
           console.log(response.data)

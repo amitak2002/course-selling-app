@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
-
+import { BACKEND_URL } from '../assets/backendurl.js';
 
 
 function Buy() {
@@ -40,7 +40,7 @@ function Buy() {
       }
       try {
         const response = await axios.post(
-          `http://localhost:2002/api/v1/courses/buy/${courseId}`,
+          `${BACKEND_URL}/courses/buy/${courseId}`,
           {},
           {
             headers: {
@@ -147,7 +147,7 @@ function Buy() {
         status : paymentIntent.status
       }
       console.log('Payment Info : ',paymentInfo)
-      await axios.post("http://localhost:2002/api/v1/order" ,
+      await axios.post(`${BACKEND_URL}/order` ,
        paymentInfo , 
        {headers : {
         Authorization : `Bearer ${token}`

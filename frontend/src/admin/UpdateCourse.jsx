@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { BACKEND_URL } from '../assets/backendurl.js';
+
 
 function UpdateCourse() {
 
@@ -20,7 +22,7 @@ function UpdateCourse() {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `http://localhost:2002/api/v1/courses/${courseId}`,
+          `${BACKEND_URL}/courses/${courseId}`,
           { withCredentials: true }
         );
          
@@ -73,7 +75,7 @@ function UpdateCourse() {
 
     try {
       const response = await axios.put(
-        `http://localhost:2002/api/v1/courses/update/${courseId}`,
+        `${BACKEND_URL}/courses/update/${courseId}`,
         formData,
         {
           headers: {

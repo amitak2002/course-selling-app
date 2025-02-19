@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // ✅ Import axios
 import { ToastContainer , toast } from 'react-toastify'; // ✅ Import toast for notifications
-
+import { BACKEND_URL } from '../assets/backendurl.js';
 
 
 function CreateCourse() {
@@ -49,7 +49,7 @@ function CreateCourse() {
 
     try {
       const response = await axios.post(
-        'http://localhost:2002/api/v1/courses/create',
+        `${BACKEND_URL}/courses/create`,
         formData,
         {
           headers: {

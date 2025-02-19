@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
-
+import { BACKEND_URL } from "../assets/backendurl.js";
 
 
 function Home() {
@@ -85,7 +85,7 @@ function Home() {
   console.log(isLoggedIn)
   const fetchCourses = async () => {
     try {
-      const response = await axios.get("http://localhost:2002/api/v1/courses/allcourses", {
+      const response = await axios.get(`${BACKEND_URL}/courses/allcourses`, {
         withCredentials: true,
       });
       console.log(response.data);
